@@ -11,13 +11,13 @@ const Productlist= () => {
     },[]);
 
     const fetchData = async() => {
-        const response = await fetch(`http://localhost:8080/products`);
-        const data = await response.json();
-        setProducts(data);
+       const response = await fetch(`https://localhost:7058/api/Products`);
+       const data = await response.json();
+       setProducts(data);
     }
     
     const deleteProduct = async(id) => {
-        await fetch(`http://localhost:8080/products/${id}`,{
+        await fetch(`https://localhost:7058/api/Products/${id}`,{
             method: "DELETE",
             headers: {
                 'Content-Type' : 'application/json'
@@ -34,15 +34,16 @@ const Productlist= () => {
                 <tr>
                     <th>No</th>
                     <th>Title</th>
+                    <th>Description</th>
                     <th>Price</th>
-                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 {product.map((product,index) => (
                     <tr key= {product.id}>
-                        <td>{index +1}</td>
+                        <td>{index + 1}</td>
                         <td>{product.title}</td>
+                        <td>{product.description}</td>
                         <td>{product.price}</td>
                         <td>
                             <Link to={`/edit/${product.id}`} className="button is-small is-info">Edit</Link>
