@@ -1,0 +1,31 @@
+snav {
+    background-color: #1e1e1e;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 110px;
+  }
+  
+  .menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  
+    .menu-item {
+      padding: 1rem;
+      color: #fff;
+      transition: background-color 0.2s ease-in-out;
+  
+      &:hover,
+      &.active {
+        background-color: #f6ad55;
+      }
+  
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+  
