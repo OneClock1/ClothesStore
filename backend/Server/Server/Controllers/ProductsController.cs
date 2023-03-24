@@ -42,7 +42,7 @@ namespace Server.Controllers
             var product = new Product()
             {
                 Id = Guid.NewGuid(),
-                Name = addProductRequest.Name,
+                Title = addProductRequest.Title,
                 Description = addProductRequest.Description,
                 Price = addProductRequest.Price
             };
@@ -64,7 +64,7 @@ namespace Server.Controllers
                 return NotFound();
             }
 
-            product.Name = updateProductRequest.Name;
+            product.Title = updateProductRequest.Title;
             product.Description = updateProductRequest.Description;
             product.Price = updateProductRequest.Price;
 
