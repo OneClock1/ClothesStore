@@ -4,15 +4,17 @@ import "./AddProduct.scss"
 
 const AddProduct = () => {
   const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const navigate = useNavigate();
 
   const saveProduct = async (e) => {
     e.preventDefault();
     await setTitle(title);
+    await setDescription(description);
     await setPrice(price);
-    const product = { title, price };
-    await fetch(`http://localhost:8080/products`, {
+    const product = { title, description, price };
+    await fetch(`https://localhost:7058/api/Products`, {
       method: "POST",
       body: JSON.stringify(product),
       headers: {
@@ -34,6 +36,19 @@ const AddProduct = () => {
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               placeholder="Title"
+            />
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">description</label>
+          <div className="control">
+            <input
+              className="input"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              type="text"
+              placeholder="Description"
             />
           </div>
         </div>
